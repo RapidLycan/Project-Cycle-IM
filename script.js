@@ -17,15 +17,15 @@ let count = 0;
 } */
 
 function swapImg(project, imgNum) {
-  setTimeout(() => {
-    img.src = `./Content/Project ${project}/Screen ${imgNum}/${count + 1}.jpg`;
-    count++;
-  }, 5000);
+  img.src = `./Content/Project ${project}/Screen ${imgNum}/${count + 1}.jpg`;
+  count++;
 }
 
 function imgCycle(project, img) {
-  for (let i = 0; i < 10; i++) {
-    swapImg(project, img);
+  for (let i = 1; i < 10; i++) {
+    setTimeout(function () {
+      swapImg(project, img);
+    }, i * 5000);
   }
 }
 
