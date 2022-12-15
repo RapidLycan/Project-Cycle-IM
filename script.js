@@ -1,4 +1,4 @@
-"use strict";
+/* "use strict";
 
 import data from "./data.json" assert { type: "json" };
 
@@ -7,14 +7,14 @@ const desc = document.querySelector(".desc");
 const title = document.querySelector(".title");
 let count = 0;
 
-/* function imgCycleTime(project) {
+function imgCycleTime(project) {
   for (let i = x - 1; i < 20; i++) {
     setTimeout(function imgCycle() {
       img.src = `./Content/Project ${project}/${count}.jpg`;
       count++;
     }, 5000);
   }
-} */
+}
 
 function swapImg(project, imgNum) {
   img.src = `./Content/Project ${project}/Screen ${imgNum}/${count + 1}.jpg`;
@@ -47,3 +47,4 @@ function update(x) {
 }
 
 update(1);
+ */
