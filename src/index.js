@@ -39,7 +39,7 @@ function imgCycle() {
 
 function loadImg() {
   console.log("loading");
-  for (let i = 1; i < 11; i++) {
+  for (let i = 1; i < 21; i++) {
     {
       document.querySelector(
         `.img${i}`
@@ -75,7 +75,7 @@ function nextProject() {
 }
 
 nextProject();
-setInterval(nextProject, 20000);
+setInterval(nextProject, 60000);
 
 /* 
 

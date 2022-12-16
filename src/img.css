@@ -11,4 +11,11 @@ div {
 
 * {
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: fit-content;
+  width: fit-content;
 }
