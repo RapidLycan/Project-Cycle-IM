@@ -1,23 +1,10 @@
 "use strict";
 
-/* import data from "../Content/data.json" assert { type: "json" };
- */
-
-const data = [
-  {
-    index: 1,
-    title: "Dekonstruktiv typografi 2MOK",
-    desc: "en dekonstruktiv presentasjon av Dave Carson med bile(r) og tekst. hvem er han og hva har han gjort i tilleg til personalia.   En musikkplakat for et typisk grunge-band med navn,tid, sted, QR-Kode og annen info du mener skal være med (feks. Pearl Jam, Nirvana mm).",
-  },
-  {
-    index: 2,
-    title: "Kattalogen",
-    desc: "Produksjon av skolen elevkatalog. Et samarbeid mellom elever fra klassene 2MED og 3MOK.  Fotografering: Omlag 470 portretter av skolens vg1-elever og 64 gruppefoto av skolens klasser.   Grafisk design på 68 sider, inkl. forsiden med inspirasjon fra Star Wars-plakater",
-  },
-];
+import data from "../Content/data.json" assert { type: "json" };
 
 const desc = document.querySelector(".desc");
 const title = document.querySelector(".title");
+const cycleSpeed = 10000;
 let Screen = "";
 let currentProject = 0;
 let slideIndex = 0;
@@ -35,7 +22,7 @@ function imgCycle() {
   slideIndex++;
   if (
     document.querySelector(`.img${slideIndex}`).classList.contains("stop") ||
-    slideIndex == 11
+    slideIndex == 61
   ) {
     document.querySelector(`.img${slideIndex - 1}`).classList.add("hidden");
     slideIndex = 1;
@@ -48,12 +35,11 @@ function imgCycle() {
     .classList.add("hidden");
   document.querySelector(`.img${slideIndex}`).classList.remove("hidden");
   console.log("completed");
-  console.log("------------");
+  console.log("----------");
 }
 
 function loadImg() {
-  console.log("loading");
-  for (let i = 1; i < 21; i++) {
+  for (let i = 1; i < 61; i++) {
     {
       document.querySelector(
         `.img${i}`
@@ -67,100 +53,57 @@ function loadImg() {
         });
     }
   }
-  console.log("loaded images");
+  console.log("images loaded");
+  console.log("----------");
 }
 
-function nextProject() {
+function NextProject() {
+  //loads and initiates next project
   currentProject++;
-  clearInterval(cycler);
+
   if (currentProject > data.length) {
+    console.log("back to first project");
     currentProject = 1;
   }
+
+  //resetting images
+  console.log("resestting imgs");
+  console.log("----------");
+  slideIndex = 0;
+  for (let i = 1; i < 61; i++) {
+    document.querySelector(`.img${i}`).classList.remove("stop");
+  }
+
+  //loading new images
+  console.log("loading up new images");
+  loadImg();
+
+  //sets up text slides
   if (document.querySelector("title").textContent === "title") {
     title.textContent = data[currentProject - 1].title;
   } else if (document.querySelector("title").textContent === "description") {
     desc.textContent = data[currentProject - 1].desc;
   } else {
-    slideIndex = 0;
-    loadImg(Screen);
-    imgCycle();
-    cycler = setInterval(imgCycle, 5000);
+    console.log("img Page");
   }
+
+  console.log(
+    `next project lasts for ${data[currentProject - 1].time} miliseconds`
+  );
+
+  setTimeout(() => {
+    StopLastProject();
+  }, data[currentProject - 1].time);
 }
 
-nextProject();
-setInterval(nextProject, 60000);
-
-/* 
-
-function nextImg(project) {
-  img.src = `../Content/Project ${project}/Screen ${Screen}/${count}.png`;
-  count++;
-  console.log("image rotated succefully");
+function StopLastProject() {
+  //stops the lasts project before loading up the new one
+  console.log("-----W-----");
+  console.log("stops the last project");
+  console.log("-----W-----");
+  NextProject();
 }
 
-function firstImg(project) {
-  img.src = `../Content/Project ${project}/Screen ${Screen}/${1}.png`;
-  count = 2;
-  console.log("back to start");
-}
-
-function swapImg(project) {
-  if (
-    fs.existsSync(`../Content/Project ${project}/Screen ${Screen}/${count}.png`)
-  ) {
-    firstImg(project);
-  } else {
-    nextImg(project);
-  }
-}
-
-function timecheck() {
-  const updater = setInterval(() => {
-    let time = String(new Date().getSeconds());
-    if (time.slice(1) === 5 || time === 5) {
-      swapImg(currentProject);
-      count++;
-    }
-  }, 1000);
-}
-
-function update(x) {
-  if (document.querySelector("title").textContent === "title") {
-    title.textContent = data[x - 1].title;
-    currentProject++;
-  } else if (document.querySelector("title").textContent === "description") {
-    desc.textContent = data[x - 1].desc;
-    currentProject++;
-  } else if (document.querySelector("title").textContent === "imgs 1") {
-    console.log("start next gen");
-    let count = 1;
-    window.clearInterval("updater");
-    timecheck;
-    currentProject++;
-  } else if (document.querySelector("title").textContent === "imgs 2") {
-    let count = 1;
-    window.clearInterval("updater");
-    timecheck;
-    currentProject++;
-  } else if (document.querySelector("title").textContent === "imgs 3") {
-    let count = 1;
-    window.clearInterval("updater");
-    timecheck;
-    currentProject++;
-  }
-}
-
-timecheck();
-
-function start() {
-  setInterval(update(currentProject), 1000);
-}
-
-start();
-
-setInterval(() => {
-  window.clearInterval(timecheck);
-}, 5000);
-
-*/
+NextProject();
+imgCycle();
+cycler = setInterval(imgCycle, cycleSpeed);
