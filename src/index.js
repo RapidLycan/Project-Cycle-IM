@@ -16,7 +16,11 @@ if (document.querySelector("title").textContent === "imgs 1") {
   Screen = 2;
 } else if (document.querySelector("title").textContent === "imgs 3") {
   Screen = 3;
+} else {
+  Screen = "Text";
 }
+
+console.log(Screen);
 
 function imgCycle() {
   slideIndex++;
@@ -66,31 +70,33 @@ function NextProject() {
     currentProject = 1;
   }
 
-  //resetting images
-  console.log("resestting imgs");
-  console.log("----------");
-  slideIndex = 0;
-  for (let i = 1; i < 61; i++) {
-    document.querySelector(`.img${i}`).classList.remove("stop");
-  }
+  if (Screen !== "Text") {
+    //resetting images
+    console.log("resestting imgs");
+    console.log("----------");
+    slideIndex = 0;
+    for (let i = 1; i < 61; i++) {
+      document.querySelector(`.img${i}`).classList.remove("stop");
+    }
 
-  //loading new images
-  console.log("loading up new images");
-  loadImg();
+    //loading new images
+    console.log("loading up new images");
+    loadImg();
+    console.log(
+      `next project lasts for ${data[currentProject - 1].time} miliseconds`
+    );
+  }
 
   //sets up text slides
   if (document.querySelector("title").textContent === "title") {
     title.textContent = data[currentProject - 1].title;
+    console.log("title swap");
   } else if (document.querySelector("title").textContent === "description") {
     desc.textContent = data[currentProject - 1].desc;
+    console.log("desc swap");
   } else {
     console.log("img Page");
   }
-
-  console.log(
-    `next project lasts for ${data[currentProject - 1].time} miliseconds`
-  );
-
   setTimeout(() => {
     StopLastProject();
   }, data[currentProject - 1].time);
@@ -103,7 +109,18 @@ function StopLastProject() {
   console.log("-----W-----");
   NextProject();
 }
+let time = new Date().getSeconds();
+console.log(time);
 
-NextProject();
-imgCycle();
-cycler = setInterval(imgCycle, cycleSpeed);
+function sync() {
+  let x = (60 - time) * 1000;
+  return x;
+}
+
+setTimeout(() => {
+  NextProject();
+  if (Screen !== "Text") {
+    imgCycle();
+    cycler = setInterval(imgCycle, cycleSpeed);
+  }
+}, sync());
