@@ -1,10 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .title {
-  color: rgb(60, 15, 69);
-  font-size: 7rem;
+  color: #fff;
+  font-size: 10rem;
   text-align: center;
+  margin-top: 20rem;
 }
 
 .desc {
-  font-size: 2rem;
+  color: #fff;
+  font-size: 3rem;
   text-align: center;
+  margin-top: 20rem;
+}
+
+body {
+  background-image: url(../Content/Design/banner.png);
+  background-repeat: repeat;
+}
+
+div {
+  height: 100%;
 }
