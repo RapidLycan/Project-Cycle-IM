@@ -109,11 +109,11 @@ function StopLastProject() {
   console.log("-----W-----");
   NextProject();
 }
-let time = new Date().getSeconds();
-console.log(time);
+let time = new Date().getMilliseconds();
+console.log(time / 1000);
 
 function sync() {
-  let x = (60 - time) * 1000;
+  let x = 60000 - time;
   return x;
 }
 
