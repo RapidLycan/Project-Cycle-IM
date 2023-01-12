@@ -44,18 +44,16 @@ function imgCycle() {
 
 function loadImg() {
   for (let i = 1; i < 61; i++) {
-    {
-      document.querySelector(
-        `.img${i}`
-      ).src = `../Content/Project ${currentProject}/Screen ${Screen}/${i}.png`;
-      document.querySelector(`.img${i}`).classList.add("hidden");
+    document.querySelector(
+      `.img${i}`
+    ).src = `../Content/Project ${currentProject}/Screen ${Screen}/${i}.png`;
+    document.querySelector(`.img${i}`).classList.add("hidden");
 
-      document
-        .querySelector(`.img${i}`)
-        .addEventListener("error", function handleError() {
-          document.querySelector(`.img${i}`).classList.add("stop");
-        });
-    }
+    document
+      .querySelector(`.img${i}`)
+      .addEventListener("error", function handleError() {
+        document.querySelector(`.img${i}`).classList.add("stop");
+      });
   }
   console.log("images loaded");
   console.log("----------");
@@ -83,7 +81,7 @@ function NextProject() {
     console.log("loading up new images");
     loadImg();
     console.log(
-      `next project lasts for ${data[currentProject - 1].time} miliseconds`
+      `next project lasts for ${data[currentProject - 1].seconds} seconds`
     );
   }
 
@@ -99,7 +97,7 @@ function NextProject() {
   }
   setTimeout(() => {
     StopLastProject();
-  }, data[currentProject - 1].time);
+  }, data[currentProject - 1].seconds * 1000);
 }
 
 function StopLastProject() {
@@ -110,10 +108,10 @@ function StopLastProject() {
   NextProject();
 }
 let time = new Date().getMilliseconds();
-console.log(time / 1000);
+console.log(time);
 
 function sync() {
-  let x = 60000 - time;
+  let x = 30000 - time;
   return x;
 }
 
