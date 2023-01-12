@@ -87,10 +87,22 @@ function NextProject() {
 
   //sets up text slides
   if (document.querySelector("title").textContent === "title") {
-    title.textContent = data[currentProject - 1].title;
+    title.classList.add("anim");
+    setTimeout(() => {
+      title.textContent = data[currentProject - 1].title;
+    }, 1000);
+    setTimeout(() => {
+      title.classList.remove("anim");
+    }, 2000);
     console.log("title swap");
   } else if (document.querySelector("title").textContent === "description") {
-    desc.textContent = data[currentProject - 1].desc;
+    desc.classList.add("anim");
+    setTimeout(() => {
+      desc.textContent = data[currentProject - 1].desc;
+    }, 1000);
+    setTimeout(() => {
+      desc.classList.remove("anim");
+    }, 2000);
     console.log("desc swap");
   } else {
     console.log("img Page");
