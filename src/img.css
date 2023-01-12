@@ -16,8 +16,7 @@ div {
 }
 
 img {
-  height: fit-content;
-  width: fit-content;
+  align-self: center;
 }
 
 body {
