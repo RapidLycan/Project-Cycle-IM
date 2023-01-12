@@ -19,3 +19,7 @@ img {
   height: fit-content;
   width: fit-content;
 }
+
+body {
+  background-color: black;
+}
