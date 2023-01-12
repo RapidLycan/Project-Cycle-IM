@@ -9,6 +9,7 @@ let Screen = "";
 let currentProject = 0;
 let slideIndex = 0;
 let cycler;
+let iterationPush = 0;
 
 if (document.querySelector("title").textContent === "imgs 1") {
   Screen = 1;
@@ -66,6 +67,10 @@ function NextProject() {
   if (currentProject > data.length) {
     console.log("back to first project");
     currentProject = 1;
+    //-----------------------
+    //IF IT IS STILL OFF SYNC CHANGE TO iterationPush++
+    //-----------------------
+    iterationPush = 10;
   }
 
   if (Screen !== "Text") {
@@ -107,9 +112,12 @@ function NextProject() {
   } else {
     console.log("img Page");
   }
+
+  //que next project
+  console.log("queing next project now");
   setTimeout(() => {
     StopLastProject();
-  }, data[currentProject - 1].seconds * 1000);
+  }, (data[currentProject - 1].seconds + iterationPush) * 1000);
 }
 
 function StopLastProject() {
