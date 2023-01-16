@@ -1,10 +1,27 @@
 "use strict";
 
-import data from "../Content/data.json" assert { type: "json" };
+/* import data from "../Content/data.json" assert { type: "json" };
+ */
+
+const data = [
+  {
+    index: 1,
+    title: "Dekonstruktiv typografi 2MOK",
+    desc: "en dekonstruktiv presentasjon av Dave Carson med bile(r) og tekst. hvem er han og hva har han gjort i tilleg til personalia.   En musikkplakat for et typisk grunge-band med navn,tid, sted, QR-Kode og annen info du mener skal være med (feks. Pearl Jam, Nirvana mm).",
+    seconds: 70,
+  },
+  {
+    index: 2,
+    title: "Kattalogen",
+    desc: "Produksjon av skolen elevkatalog. Et samarbeid mellom elever fra klassene 2MED og 3MOK.  Fotografering: Omlag 470 portretter av skolens vg1-elever og 64 gruppefoto av skolens klasser.   Grafisk design på 68 sider, inkl. forsiden med inspirasjon fra Star Wars-plakater",
+    seconds: 320,
+  },
+];
 
 const desc = document.querySelector(".desc");
 const title = document.querySelector(".title");
-const cycleSpeed = 10000;
+const cycleSpeed = 10000; //millisekkunder mellom hver gang bildene bytter !!IKKE ENDRE!!
+const syncTimer = 60; //påvirker hvor lang tid prosjektet bruker på å synce opp når startet <tall = <tid
 let Screen = "";
 let currentProject = 0;
 let slideIndex = 0;
@@ -21,7 +38,7 @@ if (document.querySelector("title").textContent === "imgs 1") {
   Screen = "Text";
 }
 
-console.log(Screen);
+console.log("this is screen: ", Screen);
 
 function imgCycle() {
   slideIndex++;
@@ -67,9 +84,6 @@ function NextProject() {
   if (currentProject > data.length) {
     console.log("back to first project");
     currentProject = 1;
-    //-----------------------
-    //IF IT IS STILL OFF SYNC CHANGE TO iterationPush++
-    //-----------------------
     iterationPush = 10;
   }
 
@@ -131,7 +145,7 @@ let time = new Date().getMilliseconds() + new Date().getSeconds() * 1000;
 console.log(time);
 
 function sync() {
-  let x = 60000 - time;
+  let x = syncTimer * 1000 - time;
   return x;
 }
 
