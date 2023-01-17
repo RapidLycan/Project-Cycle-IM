@@ -6,6 +6,7 @@ const desc = document.querySelector(".desc");
 const title = document.querySelector(".title");
 const cycleSpeed = 10000; //millisekkunder mellom hver gang bildene bytter !!IKKE ENDRE!!
 const syncTimer = 60; //påvirker hvor lang tid prosjektet bruker på å synce opp når startet <tall = <tid
+const miniSync = 2000;
 let Screen = "";
 let currentProject = 0;
 let slideIndex = 0;
@@ -118,12 +119,19 @@ function NextProject() {
   }, (data[currentProject - 1].seconds + iterationPush) * 1000);
 }
 
+function miniSync() {
+  let x = miniSync - time / 30;
+  return x;
+}
+
 function StopLastProject() {
   //stops the lasts project before loading up the new one
   console.log("-----W-----");
   console.log("stops the last project");
   console.log("-----W-----");
-  NextProject();
+  setTimeout(() => {
+    NextProject();
+  }, miniSync());
 }
 let time = new Date().getMilliseconds() + new Date().getSeconds() * 1000;
 console.log(time);
