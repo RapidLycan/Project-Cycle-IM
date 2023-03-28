@@ -1,14 +1,8 @@
 [
   {
     "index": 1,
-    "title": "Fantasivesen 1IM",
-    "desc": "Noen vesener er litt spesielle. Finnes de i det hele tatt? Skogtroll, vampyrer, hekser, alver, enhjørninger, gjengangere og zombier er vanskelige å ta bilde av. 1IM har laget fantasivesen i Photoshop. Plakaten inneholder bilde, overskrift og en kort tekst.",
-    "seconds": 80
-  },
-  {
-    "index": 2,
-    "title": "Beyond borders 3MOK",
-    "desc": "Internasjonalt samarbeid mellom en skole i Freibrug, Tyskland og elever i 3MOK. Plakatene utforsker hvordan det er å tilhøre et bestemt sted, og visualiserer samtidig hvordan man tilhører en felles europeisk identitet.",
+    "title": "3MOK Paula Schar",
+    "desc": "Foto og design til forside av magasinet D2. Saken på framsiden skal omhandle en ansatt ved Hamar katedralskole. Du bestemmer selv vinkling og hvilken ansatt.",
     "seconds": 80
   },
   {
@@ -28,6 +22,20 @@
     "title": "Photoshop 1IM",
     "desc": "Eksprimentering i Adobe Photoshop. Grafisk uttrykk inspirert av den kubanske designeren Magdiel Lopez, som er kjent for sin kreative fargebruk.",
     "seconds": 20
+  },
+  
+  {
+    "index": 6,
+    "title": "Photoshop 1IM",
+    "desc": "Eksprimentering i Adobe Photoshop. Grafisk uttrykk inspirert av den kubanske designeren Magdiel Lopez, som er kjent for sin kreative fargebruk.",
+    "seconds": 20
+  },
+
+  {
+    "index": 7,
+    "title": "Beyond borders 3MOK",
+    "desc": "Internasjonalt samarbeid mellom en skole i Freibrug, Tyskland og elever i 3MOK. Plakatene utforsker hvordan det er å tilhøre et bestemt sted, og visualiserer samtidig hvordan man tilhører en felles europeisk identitet.",
+    "seconds": 80
   }
 
 
