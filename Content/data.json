@@ -3,7 +3,13 @@
     "index": 1,
     "title": "3MOK Paula Schar",
     "desc": "Foto og design til forside av magasinet D2. Saken på framsiden skal omhandle en ansatt ved Hamar katedralskole. Du bestemmer selv vinkling og hvilken ansatt.",
-    "seconds": 80
+    "seconds": 20
+  },
+  {
+    "index": 2,
+    "title": "2MOK Albumcover",
+    "desc": "Foto og design til cover for et nytt album til en eksisterende artist. Bildeuttrykk, design, albumnavn, fonter skal ha god helhet og god lesbarhet. Stemning og stil skal passe musikk, sjanger og artistens image.",
+    "seconds": 60
   },
   {
     "index": 3,
